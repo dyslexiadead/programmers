@@ -1,0 +1,26 @@
+#1 문자열 출력하기
+str = input()
+print(str)
+
+#2 a와b 출력하기
+a, b = map(int, input().strip().split(' '))
+print('a = %d\nb = %d'%(a,b))
+
+#3 문자열 반복해서 출력하기
+str, n = input().strip().split(' ')
+n = int(n)
+print(str*n)
+
+#4 대소문자 바꿔서 출력하기
+str = input()
+for i in str:
+    if i > i.upper():
+        i=i.upper()
+    else:
+        i=i.lower()
+    print(i,end='') #if문을 사용하지않고 swapcasa(메소드)를 사용하여 한번에 가능
+    
+    
+
+#5 특수문자 출력하기
+print("!@#$%^&*(\\'",'"<>?:;',sep='') #특수문자를 쓰기 위해서 앞에\사용

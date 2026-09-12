@@ -1,0 +1,46 @@
+#1 덧셈식 출력하기
+#잘못된 풀이
+str= list(input())
+a= int(str[0])
+b= int(str[2])
+print('%d + %d = %d'%(a,b,a+b))
+#이유: 만약 입력값이 두자리수라면 리스트로 변환하는 과정에서 두자리수가 온전히 출력되지 않는다
+
+#답
+a, b = map(int, input().split())
+print(f"{a} + {b} = {a + b}")
+#map(함수)(map(함수, 특정요소)): 많은 요소에 특정 함수를 일괄적용할때 사용
+#위 문제에서 입력값 '4 5'를 int로 변환뒤 다른 변수에 저장해야하기에 int,split사용
+#split(메소드): 특정기준으로 쪼개서 리스트로 만듬
+
+#2 문자열 붙여서 출력하기
+str1, str2 = input().strip().split(' ')
+print(str1+str2)
+#strip(함수):좌우의 공백을 제거함, 또한 특정 문자 제거 가능
+
+#3 문자열 돌리기
+str = input()
+for i in str:
+    print(i)
+#join(함수): 괄호안의 요소를 구분자로 이어 붙임
+#따라서 해당 부분은 print('\n'.join(input()))으로 바로 처리가능
+
+#4 홀짝 구분하기
+str = int(input())
+if str%2==0:
+    print(f'{str} is even')
+else:
+    print(f'{str} is odd')
+    
+#5 문자열 겹쳐쓰기
+def solution(my_string, overwrite_string, s):
+    length = s+int(len(overwrite_string))
+    if length == len(my_string):
+        answer= my_string[:s]+overwrite_string
+    else:
+        answer= my_string[:s]+overwrite_string+my_string[length:]
+    return answer
+#위의 코드는 if문으로 나누지 않아도 정상적으로 작동함
+def solution(my_string, overwrite_string, s):
+    return my_string[:s] + overwrite_string + my_string[s + len(overwrite_string):]
+#만약슬라이싱범위가 같다면 아무것도 출력하지 x

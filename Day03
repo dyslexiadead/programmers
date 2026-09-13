@@ -1,0 +1,47 @@
+#1 문자열 섞기
+def solution(str1, str2):
+    answer=''
+    for i,j in zip(str1,str2):
+        answer += i+j
+    return answer
+#zip(함수):묶어줌 위문제를 기준으로 aaaaa(str1) bbbbb(str2)
+#i= a j=b이런식으로 묶임
+
+#2 문자 리스트를 문자열로 변환하기
+def solution(arr):
+    answer = ''
+    for i in arr:
+        answer+=i
+    return answer
+
+#3 문자열 곱하기
+def solution(my_string, k):
+    answer = ''
+    answer=my_string*int(k)
+    return answer
+
+#4 더 크게 합치기
+#질문: 두가지변수를 한줄로 형태를 바꿀수 있는가
+#map을 사용하기에는 기존에는 input()을 사용해서 했는데 def를 사용해서 불가
+def solution(a, b):
+    a=str(a)
+    b=str(b)
+    answer=''
+    if int(a+b)>int(b+a):
+        answer=int(a+b)
+    else:
+        answer=int(b+a)
+    return answer
+
+#5 두 수의 연산값 비교하기
+def solution(a, b):
+    product = 2*a*b
+    add = int(str(a)+str(b))
+    answer = 0
+    if product>add:
+        answer=product
+    else:
+        answer=add
+    return answer
+
+#해야할것: print문 안에 if사용법, map함수 사용법, 기존 메소드, 함수 지식 늘리기

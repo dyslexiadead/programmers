@@ -1,0 +1,67 @@
+#1 코드 처리하기
+def solution(code):
+    answer =''
+    mode = 0
+    for i in range(int(len(code))):
+        if code[i]=='1':
+            if mode==1:
+                mode=0
+                continue
+            elif mode==0:
+                mode=1
+                continue
+        if mode==0 and i%2==0:
+            answer+=code[i]
+        elif mode==1 and i%2==1:
+            answer+=code[i]
+    return answer if answer!='' else 'EMPTY'
+#코드 수정: len()이 이미 정수형 
+#틀린 이유: 문제 잘 안 읽음ㅇㅇ
+
+#2 등차수열의 특정한 항만 더하기
+def solution(a, d, included):
+    answer=0
+    for i in range(len(included)):
+        if included[i]==1:
+            answer+=a+d*i
+            print(answer)
+    return answer
+
+#3 주사위 게임 2
+def solution(a, b, c):
+    answer = 0
+    solution=[a,b,c]
+    if solution[0]==solution[1]:
+        if solution[1]==solution[2] or solution[2]==solution[0]:
+            #모두같
+            answer+=(a+b+c)*((a**2)+(b**2)+(c**2))*((a**3)+(b**3)+(c**3))
+        else:
+            answer+=(a+b+c)*((a**2)+(b**2)+(c**2))
+    else:
+        if solution[1]==solution[2] or solution[2]==solution[0]:
+            answer+=(a+b+c)*((a**2)+(b**2)+(c**2))
+        else:
+            answer+=(a+b+c)
+    return answer
+#나중에 한번 줄여보기
+#set()사용해서 줄일수있음
+#추가로 set를 사용하지않고 if에 조건이 부합하면 뒤를 추가하는 방식도 가능
+
+#4 원소들의 곱과 합
+def solution(num_list):
+    mul = 1
+    for i in num_list:
+        mul=mul*i
+    return 1 if (sum(num_list))**2>mul else 0
+
+#5 이어 붙인 수
+def solution(num_list):
+    even=''
+    odd=''
+    for i in range(len(num_list)):
+        if num_list[i]%2==0:
+            even=even+str(num_list[i])
+        else:
+            odd=odd+str(num_list[i])
+    return int(even)+int(odd)
+#num_list를 직접 반복하는게 나을듯 글고 +=를 str형태로 바로 가능

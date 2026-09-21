@@ -1,0 +1,38 @@
+#1 배열 만들기 5
+def solution(intStrs, k, s, l):
+    answer = []
+    for i in intStrs:
+        if int(i[s:s+l])>k:
+            answer+=[int(i[s:s+l])]
+    return answer
+
+#2 부분 문자열 이어 붙여 문자열 만들기
+def solution(my_strings, parts):
+    answer = ''
+    i=0
+    for j,k in parts:
+        answer+=my_strings[i][j:k+1]
+        i+=1
+    return answer
+#i를 추가하지않고 parts의 인덱스 값을 사용해서 하면 코드를 줄일수있는지
+
+#3 문자열위 뒤의 n글자
+def solution(my_string, n):
+    return my_string[len(my_string)-n:]
+
+#4 접미사 배열
+def solution(my_string):
+    answer = []
+    for i in range(len(my_string)):
+        answer+=[my_string[i:]]
+    answer=sorted(answer)
+    return answer
+#sorted(함수): 숫자 알파벳을 오름차순으로 정렬
+#sort와의 차이점 sort는 기존리스트를 수정, sorted는 새로운 리스트 반환
+
+#5 접미사인지 확인하기
+def solution(my_string, is_suffix):
+    if my_string[len(my_string)-len(is_suffix):]==is_suffix:
+        return 1
+    else:
+        return 0

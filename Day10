@@ -1,0 +1,26 @@
+#1 문자열의 앞의 n글자
+def solution(my_string, n):
+    return my_string[:n]
+
+#2 접두사인지 확인하기
+def solution(my_string, is_prefix):
+    prefix=[]
+    for i in range(len(my_string)):
+        prefix+=[my_string[:i+1]]
+    for i in prefix:
+        if i==is_prefix:
+            return 1
+    return 0
+
+#3 문자열 뒤집기*
+def solution(my_string, s, e):
+    return my_string[:s]+my_string[s:e+1][::-1]+my_string[e+1:]
+#예외 상황 잘확인하기(s가 0인경우)
+
+#4 세로읽기*
+def solution(my_string, m, c):
+    return my_string[c-1::m]
+
+#5 qr code
+def solution(q, r, code):
+    return code[r::q]

@@ -1,0 +1,47 @@
+#1 문자 개수 세기*
+def solution(my_string):
+    answer = [0]*52
+    for i in my_string:
+        print(ord('a'))
+        if i.isupper():
+            answer[ord(i)-65]+=1
+        else:
+            answer[ord(i)-71]+=1
+    return answer
+#ord():문자를 아스키코드 정수로 변환
+#is를붙이면 해당한것을 판별가능함
+
+#2 배열 만들기
+def solution(n, k):
+    answer = []
+    for i in range(n):
+        if (i+1)%k==0:
+            answer+=[i+1]
+    return answer
+
+#3 글자 지우기
+def solution(my_string, indices):
+    answer=''
+    list1 = list(my_string)
+    for i in indices:
+        list1[i]=''
+    for i in list1:
+        answer+=i
+    return answer
+#if문이나 for문을 한줄로 작성하는 방법 익히기
+
+#4 카운트 다운
+def solution(start_num, end_num):
+    answer = []
+    for i in range(start_num-end_num+1):
+        answer+=[start_num-i]
+    answer.sort(reverse=True)
+    return answer
+
+#5 가까운 1 찾기
+def solution(arr, idx):
+    answer = 0
+    for i in range(len(arr)-idx): #5-3=2 0,1
+        if arr[idx+i]==1:
+            return idx+i
+    return -1

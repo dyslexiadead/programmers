@@ -1,0 +1,24 @@
+#1 n 번째 원소부터
+def solution(num_list, n):
+    return num_list[n-1:]
+
+#2 순서 바꾸기
+def solution(num_list, n):
+    return num_list[n:]+num_list[:n]
+
+#3 왼쪽 오른쪽
+def solution(str_list):
+    for i in range(len(str_list)):
+        if str_list[i]=='l':
+            return str_list[:i]
+        elif str_list[i]=='r':
+            return str_list[i+1:]
+    return []
+
+#4 n 번째 원소까지
+def solution(num_list, n):
+    return num_list[:n]
+
+#5 n개 간격의 원소들
+def solution(num_list, n):
+    return num_list[::n]

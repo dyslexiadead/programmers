@@ -1,0 +1,44 @@
+#1 홀수 vs 짝수
+def solution(num_list):
+    z=0
+    h=0
+    for i in range(len(num_list)):
+        if i%2==0:
+            z+=num_list[i]
+        else:
+            h+=num_list[i]
+    return z if z>h else h
+
+#2 5명씩
+def solution(names):
+    answer = []
+    for i in range(len(names)):
+        if i%5==0:
+            answer+=[names[i]]
+    return answer
+#Q. answer+=에서 []로 묶지않으면 왜 한글자씩 들어가는지
+
+#3 할 일 목록
+def solution(todo_list, finished):
+    answer = []
+    for i in range(len(todo_list)):
+        if not(finished[i]):
+            answer+=[todo_list[i]]
+    return answer
+
+#4 n보다 커질 때까지 더하기
+def solution(numbers, n):
+    answer = 0
+    for i in numbers:
+        if answer>n:
+            return answer
+        answer+=i
+    return answer
+
+#5 수열과 구간 쿼리1
+def solution(arr, queries):
+    for s,e in queries:
+        for i in range(s,e+1):
+            if s<=i and i<=e:
+                arr[i]+=1
+    return arr

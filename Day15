@@ -1,0 +1,64 @@
+#1 조건에 맞게 수열 변환하기 1
+def solution(arr):
+    answer = []
+    for i in arr:
+        if i>=50 and i%2==0:
+            answer+=[i/2]
+        elif i<50 and i%2!=0:
+            answer+=[i*2]
+        else:
+            answer+=[i]
+    return answer
+
+#2 조건에 맞게 수열 변환하기 2
+def solution(arr):
+    answer = 0
+    ne=[]
+    while ne!=arr:
+        answer+=1
+        for i in arr:
+            if i>=50 and i%2==0:
+                ne+=[i/2]
+            elif i<50 and i%2!=0:
+                ne+=[i*2+1]
+            else:
+                ne+=[i]
+        if ne==arr:
+            break
+        else:
+            arr=ne
+            ne=[]
+    return answer-1
+#엄
+
+#3 1로 만들기
+def solution(num_list):
+    answer = 0
+    for i in num_list:
+        while i!=1:
+            if i%2==0:
+                i=i/2
+            else:
+                i=(i-1)/2
+            answer+=1
+    return answer
+
+#4 길이에 따른 연산
+def solution(num_list):
+    answer = 1
+    if len(num_list)>=11:
+        for i in num_list:
+            answer+=i
+        return answer-1
+    else:
+        for i in num_list:
+            print(i)
+            answer*=i
+    return answer
+
+#5 원하는 문자열 찾기
+def solution(myString, pat):
+    if pat.lower() in myString.lower():
+        return 1
+    else:
+        return 0

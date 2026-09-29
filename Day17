@@ -1,0 +1,62 @@
+#1 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+def solution(myString, pat):
+    answer = ''
+    for i in myString[::-1]:
+        answer+=i
+    index=answer.index(pat[::-1])
+    if index==0:
+        return myString[:]
+    return myString[:-index]
+
+#2 문자열이 몇 번 등장하는지 세기
+def solution(myString, pat):
+    answer = 0
+    length=len(pat)
+    for i in range(len(myString)):
+        if myString[i:i+length]==pat:
+            answer+=1
+    return answer
+
+#3 ad 제거하기*
+#오답
+def solution(strArr):
+    for i in strArr:
+        if 'ad' in i:
+            strArr.remove(i)
+    return strArr
+#문제점: remove를 사용하게되면 strArr의 인덱스를 기준으로하는 for문이 앞으로 당겨지면서 
+#스킵되는 문제가 발생
+
+#답
+def solution(strArr):
+    answer=[]
+    for i in strArr:
+        if 'ad' not in i:
+            answer+=[i]
+    return answer
+
+#4 공백으로 구분하기 1
+def solution(my_string):
+    answer = []
+    b1=0
+    b2=0
+    if ' ' not in my_string:
+        return [my_string]
+    for i in range(len(my_string)):
+        if my_string[i]==' ' and b2==0:
+            b2=i
+            print(b1,b2)
+            answer+=[my_string[:b2]]
+        elif my_string[i]==' ' and b2!=0:
+            b1=b2+1
+            b2=i
+            print(b1,b2)
+            answer+=[my_string[b1:b2]]
+    answer+=[my_string[b2+1:]]
+    return answer
+#함수가 있을것같은데 메소드나;;
+#split()메서드를 사용하여 4,5번 한번에 해결가능
+
+#5 공백으로 구분하기 2 
+def solution(my_string):
+    return my_string.split()

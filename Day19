@@ -1,0 +1,82 @@
+#1 세 게의 구분자
+def solution(myStr):
+    answer = []
+    string=''
+    for i in myStr:
+        if string=='':
+            if i!='a' and i!='b' and i!='c':
+                string+=i
+        else:
+            if i=='a' or i=='b' or i=='c':
+                answer+=[string]
+                string=''
+            else:
+                string+=i
+    if string!='':
+        answer+=[string]
+    elif string=='' and answer==[]:
+        answer+=['EMPTY']
+    return answer
+
+#2 배열의 원소만큼 추가하기
+def solution(arr):
+    answer = []
+    for i in arr:
+        answer+=[i]*i
+    return answer
+
+#3 빈 배열에 추가, 삭제하기
+#오답
+def solution(arr, flag):
+    answer = []
+    for i in range(len(arr)):
+        if flag[i]:
+            answer+=[arr[i]]*arr[i]*2
+        else:
+            for j in range(arr[i]):
+                if len(answer)<arr[i]:
+                    break
+                answer.pop(answer[-1])
+    return answer
+#틀린이유: pop에는 인덱스 순서가 들어가야함
+
+#답
+def solution(arr, flag):
+    answer = []
+    for i in range(len(arr)):
+        if flag[i]:
+            answer+=[arr[i]]*arr[i]*2
+        else:
+            answer=answer[:-arr[i]]
+    return answer
+#그냥 pop쓰지말고 슬라이싱 하셈ㅇㅇ
+
+#4 배열 만들기 6
+def solution(arr):
+    stk = []
+    i=0
+    while i<len(arr):
+        if stk==[]:
+            stk+=[arr[i]]
+        elif stk!=[] and stk[-1]==arr[i]:
+            stk.pop(-1)
+        elif stk!=[] and stk[-1]!=arr[i]:
+            stk+=[arr[i]]
+        i+=1
+    return stk if stk!=[] else [-1]
+
+#5 무작위로 k개의 수 뽑기
+#오답
+def solution(arr, k):
+    answer = [arr[0]]
+    for i in arr:
+        if i!= answer[-1]:
+            answer+=[i]
+    if len(answer)>k:
+        answer=answer[:k]
+    elif len(answer)<k:
+        while len(answer)!=k:
+            answer+=[-1]
+    return answer
+#틀린이유: answer[-1]과 만 비교하면  교차로 같은수가나오면 구분못함 
+# 따라서 그냥 in not in이용해서 하는게 편함

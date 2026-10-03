@@ -1,0 +1,33 @@
+#1 뒤에서 5증 위로
+def solution(num_list):
+    answer = []
+    answer=sorted(num_list)[5:]
+    return answer
+
+#2 전국 대회 선발 고사
+def solution(rank, attendance):
+    answer=0
+    ranking=[]
+    for i in range(len(rank)):
+        if attendance[i]:
+            ranking+=[rank[i]]
+    ranking.sort()
+    ranking=ranking[:3]
+    for i in ranking:
+        answer+=10**(4-ranking.index(i)*2)*rank.index(i)
+    return answer
+
+#3 정수 부분
+def solution(flo):
+    return flo//1
+
+#4 문자열 정수의 합
+def solution(num_str):
+    answer = 0
+    for i in num_str:
+        answer+=int(i)
+    return answer
+
+#5 문자열을 정수로 변환하기
+def solution(n_str):
+    return int(n_str)

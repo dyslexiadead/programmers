@@ -1,0 +1,48 @@
+#1 커피 심부름
+def solution(order):
+    answer = 0
+    for i in order:
+        if 'americano' in i or 'anything' in i:
+            answer+=4500
+        elif 'cafelatte' in i:
+            answer+=5000
+    return answer
+
+#2 그림 확대
+def solution(picture, k):
+    answer = []
+    text=''
+    for i in picture:
+        for j in i:
+            text+=j*k
+        answer+=[text]*k
+        text=''
+    return answer
+
+#3 조건에 맞게 수열 변환하기 3
+def solution(arr, k):
+    if k%2==0:
+        return [i+k for i in arr]
+    else:
+        return [i*k for i in arr]
+    
+#4 l로 만들기 
+def solution(myString):
+    answer = ''
+    for i in myString:
+        if i<'l':
+            answer+='l'
+        else:
+            answer+=i
+    return answer
+
+#5 특별한 이차원 배열 1*
+def solution(n):
+    answer = [[0] * n for _ in range(n)]
+    for i in range(n):
+        answer[i][i]=1
+    return answer
+#[[0]*n]*n과 같이 작성하면 0이 저장된 위치가 그대로 적용되기에 
+# 얕은 복사에 해당되므로 이후 반복문에서 인덱스를 사용한 접근에서 문제가 생김
+# 따라서 컴프리헨션(반복문)을 이용하여 직접 만듬
+# for문에서 변수위치에 _를 사용하면 굳이 사용하지않는 변수를 없애는 역할을함(공백과 같은역할인듯)
